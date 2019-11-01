@@ -33,6 +33,6 @@ main = do
 
 myLayout = avoidStruts (
     Tall 1 (3/100) (1/2) |||
-    ThreeColMid 1 (3/100) (1/2) |||
+    ThreeCol 1 (3/100) (1/2) |||
     Grid |||
     Full)
