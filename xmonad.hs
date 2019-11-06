@@ -1,17 +1,17 @@
-import XMonad
-import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.DynamicBars
-import XMonad.Hooks.SetWMName
-import XMonad.Layout.IndependentScreens
-import XMonad.Layout.Fullscreen
-import XMonad.Layout.NoBorders
-import XMonad.Layout.Tabbed
-import XMonad.Layout.Grid
-import XMonad.Layout.ThreeColumns
-import XMonad.Util.Run(spawnPipe)
-import XMonad.Util.EZConfig(additionalKeys)
-import System.IO
+import           System.IO
+import           XMonad
+import           XMonad.Hooks.DynamicBars
+import           XMonad.Hooks.DynamicLog
+import           XMonad.Hooks.ManageDocks
+import           XMonad.Hooks.SetWMName
+import           XMonad.Layout.Fullscreen
+import           XMonad.Layout.Grid
+import           XMonad.Layout.IndependentScreens
+import           XMonad.Layout.NoBorders
+import           XMonad.Layout.Tabbed
+import           XMonad.Layout.ThreeColumns
+import           XMonad.Util.EZConfig             (additionalKeys)
+import           XMonad.Util.Run                  (spawnPipe)
 
 main = do
     nScreens <- countScreens
@@ -29,6 +29,8 @@ main = do
         , modMask = mod4Mask
         } `additionalKeys`
         [ ((mod4Mask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock; xset dpms force off")
+        , ((0                     , 0x1008FF11), spawn "amixer set Master 2%-")
+        , ((0                     , 0x1008FF13), spawn "amixer set Master 2%+")
         ]
 
 myLayout = avoidStruts (

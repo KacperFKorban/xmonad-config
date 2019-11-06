@@ -26,8 +26,9 @@ Config { font = "xft:monospace-9"
                              , "--high"     , "red"
                              , "-S", "True"
                              ] 10
+                         , Run Com "/bin/bash" ["-c", "~/.xmonad/get-volume.sh"]  "volume" 1
                         ]
         , sepChar = "%"
         , alignSep = "}{"
-        , template = "%StdinReader% | %cpu% | %memory% * %swap% | %battery% | %dynnetwork% }{ <fc=#ee9a00>%date%</fc> | %EPKK%"
+        , template = "%StdinReader% | %cpu% | %memory% * %swap% | %battery% | %volume% | %dynnetwork% }{ <fc=#ee9a00>%date%</fc> | %EPKK%"
         }
