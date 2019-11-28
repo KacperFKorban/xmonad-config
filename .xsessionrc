@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Load resources
+
+xrdb -merge .Xresources
+
+# Set background image with feh
+feh --bg-scale /usr/share/backgrounds/abstract-background.jpg &
+
+# Fire up apps
+
+xscreensaver -no-splash &
+
+compton -CG --active-opacity 1.0 --shadow-ignore-shaped &
+
+if [ -x /usr/bin/nm-applet ] ; then
+   nm-applet &
+fi
+

@@ -12,6 +12,7 @@ import           XMonad.Layout.Tabbed
 import           XMonad.Layout.ThreeColumns
 import           XMonad.Util.EZConfig             (additionalKeys)
 import           XMonad.Util.Run                  (spawnPipe)
+import 		 XMonad.Util.Cursor		  (setDefaultCursor)
 
 main = do
     nScreens <- countScreens
@@ -19,7 +20,7 @@ main = do
     xmproc <- spawnPipe $ if nScreens == 2 then "xmobar -p 'Static { xpos = 1920, ypos = 0, width = 1920, height = 20 }'" else "xmobar"
 
     xmonad $ docks defaultConfig
-        { startupHook = setWMName "LG3D"
+        { startupHook = setWMName "LG3D" >> setDefaultCursor xC_pirate
         , manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = smartBorders $ myLayout
         , logHook = dynamicLogWithPP xmobarPP
